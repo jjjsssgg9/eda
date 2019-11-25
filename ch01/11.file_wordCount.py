@@ -5,9 +5,10 @@ Created on Sun Nov  3 13:57:13 2019
 @author: shkim
 """
 
-f = ____("11.yesterday.txt", ... )
+f =open("./11.yesterday.txt", 'r' )
 
-lines = ......
+
+lines = f.readlines()
 f.close()
 
 contents = ""
@@ -15,6 +16,6 @@ for line in lines:
     contents = contents + line.strip() + "\n"
 
 contents
-
-cnt = .......
+#%%
+cnt = contents.upper().count('YESTERDAY')
 print("Number of a Word 'Yesterday' : " , cnt)
