@@ -10,7 +10,7 @@ Created on Sun Nov  3 21:09:06 2019
 """
 #%%
 color = ['red', 'blue', 'white', 'black']
-d_c = {i:j for i,j in ......... }
+d_c = {i:j for i,j in enumerate(color)  }
 d_c
 
 #%%
@@ -21,12 +21,12 @@ d_c
 color = ['red', 'blue', 'white', 'black']
 cnt = [6, 2, 3, 7]
 # {'red': 6, 'blue': 2, 'white': 3, 'black': 7}
-col_cnt = {i:j for i, j in ....... }
+col_cnt = {i:j for i, j in zip(color,cnt) }
 col_cnt
 
 #%%
 # [['red', 6], ['blue', 2], ['white', 3], ['black', 7]]
-col_cnt = .......
+col_cnt = [[i,j]for i,j in zip(color,cnt)]
 col_cnt
 
 #%%
@@ -34,7 +34,7 @@ col_cnt
 (1, 3, 5)
 (2, 4, 6)
 """
-for data in ....... :
+for data in zip([1,2],[3,4],[5,6]):
     print(data)
 
 #%%
@@ -67,7 +67,7 @@ for val in map(f, num):
 
 #%%
 # List Comprehension : better!!
-.........
+[i**2 for i in num]
 
 #%%
 # map 함수
@@ -83,7 +83,7 @@ list(map(lambda x:x**2 if x%2 == 0 else x, num))
 #%%
 # List Comprehension : better!!
 num = [1, 2, 3, 4, 5]
-.........
+[i**2 if i%2==0 else i for i in num]
 
 #%%
 # 모든 수위 합
@@ -97,7 +97,7 @@ print(x)
 # reduce 함수 
 from functools import reduce
 num = [1, 2, 3, 4, 5]
-.........
+reduce(lambda x, y:x+y , num)
 
 #%%
 """

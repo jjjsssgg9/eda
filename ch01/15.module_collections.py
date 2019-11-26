@@ -180,17 +180,19 @@ type(text), text[:10]
 # default dictionary 사용
 from collections import defaultdict
 
-word_count = ...........             # Default 값을 0으로 설정
-.......
+word_count = defaultdict(lambda:0)             # Default 값을 0으로 설정
+
+for word in text:
+    word_count[word]+=1
 
 word_count
-
+#%%
 # ordered dictionary 사용
 from collections import OrderedDict
 
-od = ...........
+od = OrderedDict(sorted(word_count.items(),key=lambda t:t[1]))
 od
-
+#컨트롤 쉬프트 D 하면 도큐먼트를 볼 수 있다. 
 #%%
 """
 # Counter Module
@@ -202,7 +204,9 @@ text = list('Good morning everybody!!')
 type(text), text[:10]
 
 #%%
-c = ..........
+c = Counter(text)
+c
+#%%
 c['o'], c['e'], c['g']
 
 
@@ -217,35 +221,39 @@ type(text), text[:10]
 
 from collections import Counter
 
-c = .........
+c = Counter(text)
 c
 
 #%%
 from collections import Counter
 
 c = Counter({'red':3, 'blue':1, 'gray':4})
-list(c.___)
+#%%
+c.keys()
 
 #%%
-list(c.____)
-
-#%%
-list(c.____)
-
 #%%
 from collections import Counter
 
 c = Counter(cats=3, dogs=5)
-list(c.elements())
+
+c.elements()
 
 #%%
+list(c.elements())
+#%%
 # 덧셈, 뺄셈, 논리연산  
+
 
 from collections import Counter
 
 c1 = Counter(a=3, b=5, c=2)
 c2 = Counter(a=-1, b=3, c=7)
-....   #뺄셈
+list(c1.elements())
+list(c2.elements())
+#%%
+   #뺄셈
+c1.subtract(c2)
 c1
 
 #%%
@@ -253,9 +261,9 @@ from collections import Counter
 
 c1 = Counter(a=3, b=5, c=2)
 c2 = Counter(a=-1, b=3, c=7)
-....  # 덧셈
-....  # 논리 AND
-....  # 논리 OR
+print(c1+c2)  # 덧셈
+print(c1 & c2) # 논리 AND
+print(c1 | c2)  # 논리 OR
 
 #%%
 """
